@@ -39,7 +39,6 @@ jobs:
       - name: pull image
         run: docker pull hasina17/docker_with_cloud:latest
       - name: stop old container
-        shell: bash
-        run: docker stop hasina17/docker_with_cloud || true
+        run: docker stop hasina17/docker_with_cloud; exit 0
       - name: run new container
         run: docker run -d -p 8080:80 --name docker_with_cloud hasina17/docker_with_cloud:latest
